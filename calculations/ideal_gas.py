@@ -1,4 +1,6 @@
 # PV = nRT
+from Utils.input_validation import get_integer
+from Utils.input_validation import get_positive_float
 
 r = 8.314  # J/(mol·K)
 
@@ -30,7 +32,6 @@ def run_ideal_gas():
     for key, value in options.items():
         print(f"{key}. {value}")
 
-    from Utils.input_validation import get_integer
     choice = get_integer()
 
     if choice not in options:
@@ -38,29 +39,29 @@ def run_ideal_gas():
         return
 
     if choice == 1:
-        p = float(input("Pressure (Pa): "))
-        v = float(input("Volume (m^3): "))
-        t = float(input("Temperature (K): "))
+        p = get_positive_float("Pressure (Pa): ")
+        v = get_positive_float("Volume (m^3): ")
+        t = get_positive_float("Temperature (K): ")
         n = ideal_gas_moles(p, v, t)
         print(f"\nMoles of gas: {n:.4f} mol\n")
 
     elif choice == 2:
-        n = float(input("Moles: "))
-        v = float(input("Volume (m^3): "))
-        t = float(input("Temperature (K): "))
+        n = get_positive_float("Moles")
+        v = get_positive_float("Volume (m^3): ")
+        t = get_positive_float("Temperature (K): ")
         p = ideal_gas_pressure(n, v, t)
         print(f"\nPressure of gas: {p:.4f} Pa\n")
 
     elif choice == 3:
-        p = float(input("Pressure (Pa): "))
-        n = float(input("Moles: "))
-        t = float(input("Temperature (K): "))
+        p = get_positive_float("Pressure (Pa): ")
+        n = get_positive_float("Moles: ")
+        t = get_positive_float("Temperature (K): ")
         v = ideal_gas_volume(p, t, n)
         print(f"\nVolume of gas: {v:.4f} m^3\n")
 
     elif choice == 4:
-        p = float(input("Pressure (Pa): "))
-        v = float(input("Volume (m^3): "))
-        n = float(input("Moles: "))
+        p = get_positive_float("Pressure (Pa): ")
+        v = get_positive_float("Volume (m^3): ")
+        n = get_positive_float("Moles: ")
         t = ideal_gas_temperature(p, v, n)
         print(f"\nTemperature of gas: {t:.4f} K\n")
