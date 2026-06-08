@@ -1,6 +1,6 @@
 from calculations.ideal_gas import run_ideal_gas
 from calculations.arrhenius import run_arrhenius
-from plotting.idea_gas_plot import run_ideal_gas_plot
+from plotting.ideal_gas_plot import run_ideal_gas_plot
 
 
 #Eventually we will add in a section for calculations, plotting and data analysis and have them as main groups
