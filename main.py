@@ -1,5 +1,6 @@
 from calculations.ideal_gas import run_ideal_gas
 from calculations.arrhenius import run_arrhenius
+from plotting.arrhenius_plot import run_arrhenius_plot
 from plotting.ideal_gas_plot import run_ideal_gas_plot
 from Utils.input_validation import get_integer
 
@@ -8,6 +9,7 @@ tools = {
     1: ("Ideal Gas Calculator", run_ideal_gas),
     2: ("Arrhenius Calculator", run_arrhenius),
     3: ("Ideal Gas Plotting", run_ideal_gas_plot),
+    4: ("Arrhenius Plotting", run_arrhenius_plot),
     0: ("Exit", exit)
 }
 
